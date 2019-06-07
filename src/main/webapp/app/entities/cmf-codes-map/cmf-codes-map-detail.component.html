@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cMFCodesMap">
+            <h2><span>CMF Codes Map</span> {{cMFCodesMap.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Code Val Key</span></dt>
+                <dd>
+                    <span>{{cMFCodesMap.codeValKey}}</span>
+                </dd>
+                <dt><span>Code Val Rltd Key</span></dt>
+                <dd>
+                    <span>{{cMFCodesMap.codeValRltdKey}}</span>
+                </dd>
+                <dt><span>Map Type Code</span></dt>
+                <dd>
+                    <span>{{cMFCodesMap.mapTypeCode}}</span>
+                </dd>
+                <dt><span>Eff Date</span></dt>
+                <dd>
+                    <span>{{cMFCodesMap.effDate}}</span>
+                </dd>
+                <dt><span>End Date</span></dt>
+                <dd>
+                    <span>{{cMFCodesMap.endDate}}</span>
+                </dd>
+                <dt><span>Comment Text</span></dt>
+                <dd>
+                    <span>{{cMFCodesMap.commentText}}</span>
+                </dd>
+                <dt><span>Create Date</span></dt>
+                <dd>
+                    <span>{{cMFCodesMap.createDate}}</span>
+                </dd>
+                <dt><span>Create User Id</span></dt>
+                <dd>
+                    <span>{{cMFCodesMap.createUserId}}</span>
+                </dd>
+                <dt><span>Upd Date</span></dt>
+                <dd>
+                    <span>{{cMFCodesMap.updDate}}</span>
+                </dd>
+                <dt><span>Upd User Id</span></dt>
+                <dd>
+                    <span>{{cMFCodesMap.updUserId}}</span>
+                </dd>
+                <dt><span>C MF Code Values</span></dt>
+                <dd>
+                    <div *ngIf="cMFCodesMap.cMFCodeValues">
+                        <a [routerLink]="['/cmf-codes-values', cMFCodesMap.cMFCodeValues?.id, 'view']">{{cMFCodesMap.cMFCodeValues?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>C MF Code Values Rltd</span></dt>
+                <dd>
+                    <div *ngIf="cMFCodesMap.cMFCodeValuesRltd">
+                        <a [routerLink]="['/cmf-codes-values', cMFCodesMap.cMFCodeValuesRltd?.id, 'view']">{{cMFCodesMap.cMFCodeValuesRltd?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cmf-codes-map', cMFCodesMap.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

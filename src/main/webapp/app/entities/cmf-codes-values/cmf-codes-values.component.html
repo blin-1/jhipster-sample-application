@@ -1,0 +1,90 @@
+<div>
+    <h2 id="page-heading">
+        <span>CMF Codes Values</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cmf-codes-values" [routerLink]="['/cmf-codes-values/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new CMF Codes Values
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="cMFCodesValues">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeValKey"><span>Code Val Key</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeTableKey"><span>Code Table Key</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeClassfctnTypeCode"><span>Code Classfctn Type Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="srcSysCode"><span>Src Sys Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lifecycleStatusCode"><span>Lifecycle Status Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codeColValCode"><span>Code Col Val Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descColValText"><span>Desc Col Val Text</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="effDate"><span>Eff Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="endDate"><span>End Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="commentText"><span>Comment Text</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nameColValName"><span>Name Col Val Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="createDate"><span>Create Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="createUserId"><span>Create User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="updDate"><span>Upd Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="updUserId"><span>Upd User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cMFCodesValues of cMFCodesValues ;trackBy: trackId">
+                <td><a [routerLink]="['/cmf-codes-values', cMFCodesValues.id, 'view' ]">{{cMFCodesValues.id}}</a></td>
+                <td>{{cMFCodesValues.codeValKey}}</td>
+                <td>{{cMFCodesValues.codeTableKey}}</td>
+                <td>{{cMFCodesValues.codeClassfctnTypeCode}}</td>
+                <td>{{cMFCodesValues.srcSysCode}}</td>
+                <td>{{cMFCodesValues.lifecycleStatusCode}}</td>
+                <td>{{cMFCodesValues.codeColValCode}}</td>
+                <td>{{cMFCodesValues.descColValText}}</td>
+                <td>{{cMFCodesValues.effDate | date:'medium'}}</td>
+                <td>{{cMFCodesValues.endDate | date:'medium'}}</td>
+                <td>{{cMFCodesValues.commentText}}</td>
+                <td>{{cMFCodesValues.nameColValName}}</td>
+                <td>{{cMFCodesValues.createDate | date:'medium'}}</td>
+                <td>{{cMFCodesValues.createUserId}}</td>
+                <td>{{cMFCodesValues.updDate | date:'medium'}}</td>
+                <td>{{cMFCodesValues.updUserId}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/cmf-codes-values', cMFCodesValues.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/cmf-codes-values', cMFCodesValues.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'cmf-codes-values', { outlets: { popup: cMFCodesValues.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="cMFCodesValues && cMFCodesValues.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
