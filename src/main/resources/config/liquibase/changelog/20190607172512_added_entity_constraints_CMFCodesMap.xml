@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity CMFCodesMap.
+    -->
+    <changeSet id="20190607172512-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="cmfcode_values_id"
+                                 baseTableName="cmf_codes_map"
+                                 constraintName="fk_cmf_codes_map_cmfcode_values_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cmf_codes_values"/>
+
+        <addForeignKeyConstraint baseColumnNames="cmfcode_values_rltd_id"
+                                 baseTableName="cmf_codes_map"
+                                 constraintName="fk_cmf_codes_map_cmfcode_values_rltd_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cmf_codes_values"/>
+
+    </changeSet>
+</databaseChangeLog>

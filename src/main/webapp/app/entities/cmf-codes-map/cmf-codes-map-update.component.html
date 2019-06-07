@@ -1,0 +1,148 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cmf-codes-map-heading">Create or edit a CMF Codes Map</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!cMFCodesMap.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codeValKey">Code Val Key</label>
+                    <input type="number" class="form-control" name="codeValKey" id="field_codeValKey"
+                           formControlName="codeValKey"/>
+                    <div *ngIf="editForm.get('codeValKey').invalid && (editForm.get('codeValKey').dirty || editForm.get('codeValKey').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeValKey').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('codeValKey')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codeValRltdKey">Code Val Rltd Key</label>
+                    <input type="number" class="form-control" name="codeValRltdKey" id="field_codeValRltdKey"
+                           formControlName="codeValRltdKey"/>
+                    <div *ngIf="editForm.get('codeValRltdKey').invalid && (editForm.get('codeValRltdKey').dirty || editForm.get('codeValRltdKey').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeValRltdKey').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('codeValRltdKey')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mapTypeCode">Map Type Code</label>
+                    <input type="text" class="form-control" name="mapTypeCode" id="field_mapTypeCode"
+                           formControlName="mapTypeCode"/>
+                    <div *ngIf="editForm.get('mapTypeCode').invalid && (editForm.get('mapTypeCode').dirty || editForm.get('mapTypeCode').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mapTypeCode').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mapTypeCode').errors.maxlength">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_effDate">Eff Date</label>
+                    <div class="d-flex">
+                        <input id="field_effDate" type="datetime-local" class="form-control" name="effDate" formControlName="effDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_endDate">End Date</label>
+                    <div class="d-flex">
+                        <input id="field_endDate" type="datetime-local" class="form-control" name="endDate" formControlName="endDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_commentText">Comment Text</label>
+                    <input type="text" class="form-control" name="commentText" id="field_commentText"
+                           formControlName="commentText"/>
+                    <div *ngIf="editForm.get('commentText').invalid && (editForm.get('commentText').dirty || editForm.get('commentText').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('commentText').errors.maxlength">
+                        This field cannot be longer than 800 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createDate">Create Date</label>
+                    <div class="d-flex">
+                        <input id="field_createDate" type="datetime-local" class="form-control" name="createDate" formControlName="createDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createUserId">Create User Id</label>
+                    <input type="text" class="form-control" name="createUserId" id="field_createUserId"
+                           formControlName="createUserId"/>
+                    <div *ngIf="editForm.get('createUserId').invalid && (editForm.get('createUserId').dirty || editForm.get('createUserId').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createUserId').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createUserId').errors.maxlength">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updDate">Upd Date</label>
+                    <div class="d-flex">
+                        <input id="field_updDate" type="datetime-local" class="form-control" name="updDate" formControlName="updDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updUserId">Upd User Id</label>
+                    <input type="text" class="form-control" name="updUserId" id="field_updUserId"
+                           formControlName="updUserId"/>
+                    <div *ngIf="editForm.get('updUserId').invalid && (editForm.get('updUserId').dirty || editForm.get('updUserId').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('updUserId').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('updUserId').errors.maxlength">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cMFCodeValues">C MF Code Values</label>
+                    <select class="form-control" id="field_cMFCodeValues" name="cMFCodeValues" formControlName="cMFCodeValues">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cMFCodesValuesOption.id === editForm.get('cMFCodeValues').value?.id ? editForm.get('cMFCodeValues').value : cMFCodesValuesOption" *ngFor="let cMFCodesValuesOption of cmfcodevalues; trackBy: trackCMFCodesValuesById">{{cMFCodesValuesOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cMFCodeValuesRltd">C MF Code Values Rltd</label>
+                    <select class="form-control" id="field_cMFCodeValuesRltd" name="cMFCodeValuesRltd" formControlName="cMFCodeValuesRltd">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cMFCodesValuesOption.id === editForm.get('cMFCodeValuesRltd').value?.id ? editForm.get('cMFCodeValuesRltd').value : cMFCodesValuesOption" *ngFor="let cMFCodesValuesOption of cmfcodevaluesrltds; trackBy: trackCMFCodesValuesById">{{cMFCodesValuesOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

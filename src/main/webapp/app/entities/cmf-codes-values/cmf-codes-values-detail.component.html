@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cMFCodesValues">
+            <h2><span>CMF Codes Values</span> {{cMFCodesValues.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Code Val Key</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.codeValKey}}</span>
+                </dd>
+                <dt><span>Code Table Key</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.codeTableKey}}</span>
+                </dd>
+                <dt><span>Code Classfctn Type Code</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.codeClassfctnTypeCode}}</span>
+                </dd>
+                <dt><span>Src Sys Code</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.srcSysCode}}</span>
+                </dd>
+                <dt><span>Lifecycle Status Code</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.lifecycleStatusCode}}</span>
+                </dd>
+                <dt><span>Code Col Val Code</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.codeColValCode}}</span>
+                </dd>
+                <dt><span>Desc Col Val Text</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.descColValText}}</span>
+                </dd>
+                <dt><span>Eff Date</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.effDate}}</span>
+                </dd>
+                <dt><span>End Date</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.endDate}}</span>
+                </dd>
+                <dt><span>Comment Text</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.commentText}}</span>
+                </dd>
+                <dt><span>Name Col Val Name</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.nameColValName}}</span>
+                </dd>
+                <dt><span>Create Date</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.createDate}}</span>
+                </dd>
+                <dt><span>Create User Id</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.createUserId}}</span>
+                </dd>
+                <dt><span>Upd Date</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.updDate}}</span>
+                </dd>
+                <dt><span>Upd User Id</span></dt>
+                <dd>
+                    <span>{{cMFCodesValues.updUserId}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cmf-codes-values', cMFCodesValues.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

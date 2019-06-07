@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cMFCodes">
+            <h2><span>CMF Codes</span> {{cMFCodes.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Code Table Key</span></dt>
+                <dd>
+                    <span>{{cMFCodes.codeTableKey}}</span>
+                </dd>
+                <dt><span>Code Enty Name</span></dt>
+                <dd>
+                    <span>{{cMFCodes.codeEntyName}}</span>
+                </dd>
+                <dt><span>Code Enty Definition Text</span></dt>
+                <dd>
+                    <span>{{cMFCodes.codeEntyDefinitionText}}</span>
+                </dd>
+                <dt><span>Code Table Name</span></dt>
+                <dd>
+                    <span>{{cMFCodes.codeTableName}}</span>
+                </dd>
+                <dt><span>Code Attrb Name</span></dt>
+                <dd>
+                    <span>{{cMFCodes.codeAttrbName}}</span>
+                </dd>
+                <dt><span>Desc Attrb Name</span></dt>
+                <dd>
+                    <span>{{cMFCodes.descAttrbName}}</span>
+                </dd>
+                <dt><span>Code Col Name</span></dt>
+                <dd>
+                    <span>{{cMFCodes.codeColName}}</span>
+                </dd>
+                <dt><span>Desc Col Name</span></dt>
+                <dd>
+                    <span>{{cMFCodes.descColName}}</span>
+                </dd>
+                <dt><span>Comment Text</span></dt>
+                <dd>
+                    <span>{{cMFCodes.commentText}}</span>
+                </dd>
+                <dt><span>Name Attrb Name</span></dt>
+                <dd>
+                    <span>{{cMFCodes.nameAttrbName}}</span>
+                </dd>
+                <dt><span>Name Col Name</span></dt>
+                <dd>
+                    <span>{{cMFCodes.nameColName}}</span>
+                </dd>
+                <dt><span>Create Date</span></dt>
+                <dd>
+                    <span>{{cMFCodes.createDate}}</span>
+                </dd>
+                <dt><span>Create User Id</span></dt>
+                <dd>
+                    <span>{{cMFCodes.createUserId}}</span>
+                </dd>
+                <dt><span>Upd Date</span></dt>
+                <dd>
+                    <span>{{cMFCodes.updDate}}</span>
+                </dd>
+                <dt><span>Upd User Id</span></dt>
+                <dd>
+                    <span>{{cMFCodes.updUserId}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cmf-codes', cMFCodes.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

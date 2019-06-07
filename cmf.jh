@@ -1,0 +1,76 @@
+entity CMFCodes {
+	
+	codeTableKey			BigDecimal	required,
+	
+    codeEntyName			String		required maxlength(128),
+    codeEntyDefinitionText	String		required maxlength(800),
+    codeTableName			String		required maxlength(64),
+    codeAttrbName			String		required maxlength(128),
+    descAttrbName			String		required maxlength(128),
+    codeColName 			String		required maxlength(64),
+    descColName 			String		required maxlength(64),
+    commentText 			String		required maxlength(800),
+    nameAttrbName			String		required maxlength(128),
+    nameColName				String		required maxlength(30),
+    createDate 				Instant,
+    createUserId			String		required maxlength(20),
+    updDate					Instant,
+    updUserId				String		required maxlength(20)
+}
+
+entity CMFCodesValues {
+
+	codeValKey				BigDecimal	required,
+	codeTableKey			BigDecimal	required,
+
+	codeClassfctnTypeCode	String		required maxlength(20),
+    srcSysCode				String		required maxlength(20),
+    lifecycleStatusCode		String		required maxlength(20)
+	codeColValCode			String				 maxlength(256),
+    descColValText			String				 maxlength(800),
+    effDate					Instant,
+    endDate					Instant,
+    commentText				String				 maxlength(800),
+    nameColValName			String				 maxlength(512),
+    
+    createDate 				Instant,
+    createUserId			String		required maxlength(20),
+    updDate					Instant,
+    updUserId				String		required maxlength(20)
+
+}
+
+entity CMFCodesMap {
+
+	codeValKey  			BigDecimal	required,
+    codeValRltdKey  		BigDecimal	required,
+
+	mapTypeCode				String		required maxlength(20),
+    effDate					Instant,
+    endDate					Instant,
+    commentText				String				 maxlength(800),
+
+    createDate 				Instant,
+    createUserId			String		required maxlength(20),
+    updDate					Instant,
+    updUserId				String		required maxlength(20)
+
+}
+
+relationship OneToOne {
+   CMFCodesMap {CMFCodeValues} to CMFCodesValues
+}
+relationship OneToOne {
+   CMFCodesMap {CMFCodeValuesRltd} to CMFCodesValues
+}
+
+
+// service all with serviceImpl
+
+//Filter entities
+
+filter *
+
+
+// Set pagination options
+paginate * with pagination

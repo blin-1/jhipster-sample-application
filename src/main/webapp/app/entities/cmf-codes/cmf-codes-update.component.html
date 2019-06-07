@@ -1,0 +1,231 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cmf-codes-heading">Create or edit a CMF Codes</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!cMFCodes.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codeTableKey">Code Table Key</label>
+                    <input type="number" class="form-control" name="codeTableKey" id="field_codeTableKey"
+                           formControlName="codeTableKey"/>
+                    <div *ngIf="editForm.get('codeTableKey').invalid && (editForm.get('codeTableKey').dirty || editForm.get('codeTableKey').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeTableKey').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('codeTableKey')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codeEntyName">Code Enty Name</label>
+                    <input type="text" class="form-control" name="codeEntyName" id="field_codeEntyName"
+                           formControlName="codeEntyName"/>
+                    <div *ngIf="editForm.get('codeEntyName').invalid && (editForm.get('codeEntyName').dirty || editForm.get('codeEntyName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeEntyName').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeEntyName').errors.maxlength">
+                        This field cannot be longer than 128 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codeEntyDefinitionText">Code Enty Definition Text</label>
+                    <input type="text" class="form-control" name="codeEntyDefinitionText" id="field_codeEntyDefinitionText"
+                           formControlName="codeEntyDefinitionText"/>
+                    <div *ngIf="editForm.get('codeEntyDefinitionText').invalid && (editForm.get('codeEntyDefinitionText').dirty || editForm.get('codeEntyDefinitionText').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeEntyDefinitionText').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeEntyDefinitionText').errors.maxlength">
+                        This field cannot be longer than 800 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codeTableName">Code Table Name</label>
+                    <input type="text" class="form-control" name="codeTableName" id="field_codeTableName"
+                           formControlName="codeTableName"/>
+                    <div *ngIf="editForm.get('codeTableName').invalid && (editForm.get('codeTableName').dirty || editForm.get('codeTableName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeTableName').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeTableName').errors.maxlength">
+                        This field cannot be longer than 64 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codeAttrbName">Code Attrb Name</label>
+                    <input type="text" class="form-control" name="codeAttrbName" id="field_codeAttrbName"
+                           formControlName="codeAttrbName"/>
+                    <div *ngIf="editForm.get('codeAttrbName').invalid && (editForm.get('codeAttrbName').dirty || editForm.get('codeAttrbName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeAttrbName').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeAttrbName').errors.maxlength">
+                        This field cannot be longer than 128 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_descAttrbName">Desc Attrb Name</label>
+                    <input type="text" class="form-control" name="descAttrbName" id="field_descAttrbName"
+                           formControlName="descAttrbName"/>
+                    <div *ngIf="editForm.get('descAttrbName').invalid && (editForm.get('descAttrbName').dirty || editForm.get('descAttrbName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('descAttrbName').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('descAttrbName').errors.maxlength">
+                        This field cannot be longer than 128 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codeColName">Code Col Name</label>
+                    <input type="text" class="form-control" name="codeColName" id="field_codeColName"
+                           formControlName="codeColName"/>
+                    <div *ngIf="editForm.get('codeColName').invalid && (editForm.get('codeColName').dirty || editForm.get('codeColName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeColName').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codeColName').errors.maxlength">
+                        This field cannot be longer than 64 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_descColName">Desc Col Name</label>
+                    <input type="text" class="form-control" name="descColName" id="field_descColName"
+                           formControlName="descColName"/>
+                    <div *ngIf="editForm.get('descColName').invalid && (editForm.get('descColName').dirty || editForm.get('descColName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('descColName').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('descColName').errors.maxlength">
+                        This field cannot be longer than 64 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_commentText">Comment Text</label>
+                    <input type="text" class="form-control" name="commentText" id="field_commentText"
+                           formControlName="commentText"/>
+                    <div *ngIf="editForm.get('commentText').invalid && (editForm.get('commentText').dirty || editForm.get('commentText').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('commentText').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('commentText').errors.maxlength">
+                        This field cannot be longer than 800 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nameAttrbName">Name Attrb Name</label>
+                    <input type="text" class="form-control" name="nameAttrbName" id="field_nameAttrbName"
+                           formControlName="nameAttrbName"/>
+                    <div *ngIf="editForm.get('nameAttrbName').invalid && (editForm.get('nameAttrbName').dirty || editForm.get('nameAttrbName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nameAttrbName').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nameAttrbName').errors.maxlength">
+                        This field cannot be longer than 128 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nameColName">Name Col Name</label>
+                    <input type="text" class="form-control" name="nameColName" id="field_nameColName"
+                           formControlName="nameColName"/>
+                    <div *ngIf="editForm.get('nameColName').invalid && (editForm.get('nameColName').dirty || editForm.get('nameColName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nameColName').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nameColName').errors.maxlength">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createDate">Create Date</label>
+                    <div class="d-flex">
+                        <input id="field_createDate" type="datetime-local" class="form-control" name="createDate" formControlName="createDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createUserId">Create User Id</label>
+                    <input type="text" class="form-control" name="createUserId" id="field_createUserId"
+                           formControlName="createUserId"/>
+                    <div *ngIf="editForm.get('createUserId').invalid && (editForm.get('createUserId').dirty || editForm.get('createUserId').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createUserId').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createUserId').errors.maxlength">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updDate">Upd Date</label>
+                    <div class="d-flex">
+                        <input id="field_updDate" type="datetime-local" class="form-control" name="updDate" formControlName="updDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updUserId">Upd User Id</label>
+                    <input type="text" class="form-control" name="updUserId" id="field_updUserId"
+                           formControlName="updUserId"/>
+                    <div *ngIf="editForm.get('updUserId').invalid && (editForm.get('updUserId').dirty || editForm.get('updUserId').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('updUserId').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('updUserId').errors.maxlength">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
